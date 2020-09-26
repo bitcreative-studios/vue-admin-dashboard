@@ -4,11 +4,21 @@
   </div>
 </template>
 
-<style lang="scss">
-body {
-  background: $dark-blue;
-}
+<script>
+const DARK_BACKGROUND = "#212C4F";
+const LIGHT_BACKGROUND = "F0F3F5";
 
+export default {
+  name: "App",
+  mounted() {
+    const isDarkMode = this.$store.getters.isDarkMode;
+    document.body.style.background = isDarkMode
+      ? DARK_BACKGROUND
+      : LIGHT_BACKGROUND;
+  },
+};
+</script>
+<style lang="scss">
 h1 {
   @include heading-1;
 }

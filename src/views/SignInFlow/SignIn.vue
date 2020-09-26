@@ -47,12 +47,14 @@
 <script>
 export default {
   name: "SignIn",
-  data() {
-    return { isDarkMode: true };
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
   },
   methods: {
     toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
+      this.$store.commit("toggleDarkMode");
     },
   },
 };
